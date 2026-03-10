@@ -4,65 +4,258 @@ linkTitle: "Tekton.dev Homepage"
 
 ---
 
-{{< blocks/cover title="Cloud Native CI/CD" subtitle="" image_anchor="smart" color="orange" height="med">}}
-<div class="mx-auto">
-	<a class="btn btn-lg btn-dark mr-3 mb-4" href="{{< relref "/docs" >}}">
-		Documentation <i class="fas fa-arrow-alt-circle-right ml-2"></i>
-	</a>
-	<a class="btn btn-lg btn-light mr-3 mb-4" href="https://github.com/tektoncd">
-		GitHub <i class="fab fa-github ml-2 "></i>
-	</a>
+{{< blocks/cover title="" subtitle="" image_anchor="smart" color="primary" height="med">}}
+<div class="mx-auto tekton-hero">
+	<div class="hero-badge mb-3">
+		<span class="badge badge-hero">
+			<i class="fas fa-star mr-1"></i> CNCF Incubating Project
+		</span>
+	</div>
+	<h1 class="display-1 font-weight-bold mb-3">Cloud Native CI/CD</h1>
+	<p class="lead hero-subtitle mb-4">
+		A powerful, flexible open-source framework for creating CI/CD systems on Kubernetes.
+		Build, test, and deploy across any cloud or on-premise environment.
+	</p>
+	<div class="hero-cta mb-4">
+		<a class="btn btn-lg btn-primary mr-3 mb-3" href="{{< relref "/docs/getting-started" >}}">
+			Get Started <i class="fas fa-rocket ml-2"></i>
+		</a>
+		<a class="btn btn-lg btn-outline-light mr-3 mb-3" href="{{< relref "/docs" >}}">
+			Documentation <i class="fas fa-book ml-2"></i>
+		</a>
+		<a class="btn btn-lg btn-outline-light mb-3" href="https://github.com/tektoncd">
+			GitHub <i class="fab fa-github ml-2"></i>
+		</a>
+	</div>
+	<div class="hero-stats">
+		<div class="hero-stat">
+			<span class="hero-stat-number">10+</span>
+			<span class="hero-stat-label">Components</span>
+		</div>
+		<div class="hero-stat">
+			<span class="hero-stat-number">100+</span>
+			<span class="hero-stat-label">Contributors</span>
+		</div>
+		<div class="hero-stat">
+			<span class="hero-stat-number">LTS</span>
+			<span class="hero-stat-label">Releases</span>
+		</div>
+	</div>
 </div>
 {{< /blocks/cover >}}
 
-{{% blocks/showcase color="link" %}}
+<!-- What is Tekton -->
+<section class="row td-box td-box--white td-box--gradient td-box--height-auto">
+	<div class="container">
+		<div class="row justify-content-center py-5">
+			<div class="col-lg-8 text-center">
+				<h2 class="section-heading mb-4">What is Tekton?</h2>
+				<p class="lead text-muted">
+					Tekton provides Kubernetes-native building blocks for CI/CD pipelines.
+					Define your build, test, and deploy workflows as code using reusable,
+					composable <strong>Steps</strong>, <strong>Tasks</strong>, and <strong>Pipelines</strong>
+					that run as containers in your cluster.
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
 
-{{< blocks/section color="danger" >}}
-{{% blocks/feature icon="fas fa-globe-asia" title="Standardization" %}}
-Tekton standardizes CI/CD tooling and processes across vendors, languages,
-and deployment environments. It works well with Jenkins, Jenkins X, Skaffold,
-Knative, and many other popular CI/CD tools.
+<!-- Why Tekton -->
+{{< blocks/section color="light" >}}
+<div class="col-12 text-center mb-4">
+	<h2 class="section-heading">Why Tekton?</h2>
+</div>
+
+{{% blocks/feature icon="fab fa-linux" title="Kubernetes Native" %}}
+Runs on any Kubernetes cluster. Tasks execute as pods — no external
+CI server needed. Scale automatically with your cluster.
 {{% /blocks/feature %}}
 
-
-{{% blocks/feature icon="fas fa-medal" title="Built-in best practices" %}}
-Tekton lets you create CI/CD systems quickly,
-giving you scalable, serverless, cloud native execution out of the box.
+{{% blocks/feature icon="fas fa-puzzle-piece" title="Composable & Reusable" %}}
+Build pipelines from modular tasks. Share and reuse across teams
+and projects. Customize without starting from scratch.
 {{% /blocks/feature %}}
 
-
-{{% blocks/feature icon="fas fa-feather" title="Maximum flexibility" %}}
-Tekton abstracts the underlying implementation so that you can choose the build,
-test, and deploy workflow based on your team's requirements.
+{{% blocks/feature icon="fas fa-shield-alt" title="Supply Chain Security" %}}
+Built-in SLSA compliance with Tekton Chains. Automatically sign
+and attest your builds. Verify provenance end-to-end.
 {{% /blocks/feature %}}
 
+{{% blocks/feature icon="fas fa-code-branch" title="GitOps Ready" %}}
+Declare your pipelines in Git alongside your code. Trigger builds
+from events. Version control your entire CI/CD configuration.
+{{% /blocks/feature %}}
+
+{{% blocks/feature icon="fas fa-expand-arrows-alt" title="Vendor Neutral" %}}
+No lock-in. Works across any cloud provider or on-premise.
+A CNCF Incubating project backed by a broad community.
+{{% /blocks/feature %}}
+
+{{% blocks/feature icon="fas fa-tachometer-alt" title="Production Ready" %}}
+Battle-tested at scale. LTS releases for stability. Used in production
+by organizations across the globe.
+{{% /blocks/feature %}}
 
 {{< /blocks/section >}}
 
+<!-- Quick Example -->
+<section class="row td-box td-box--dark td-box--gradient td-box--height-auto">
+	<div class="container">
+		<div class="row justify-content-center py-5">
+			<div class="col-lg-6 mb-4 mb-lg-0">
+				<h2 class="section-heading text-white mb-4">Simple by Design</h2>
+				<p class="text-light mb-4">
+					A Tekton Task is just a series of steps, each running in its own container.
+					Combine tasks into pipelines. Trigger them from events.
+					It's Kubernetes resources all the way down.
+				</p>
+				<a href="/docs/getting-started/" class="btn btn-outline-light">
+					Try the tutorial <i class="fas fa-arrow-right ml-2"></i>
+				</a>
+			</div>
+			<div class="col-lg-6">
+				<div class="code-example">
+<pre><code class="language-yaml"><span class="text-info">apiVersion:</span> tekton.dev/v1
+<span class="text-info">kind:</span> Task
+<span class="text-info">metadata:</span>
+  <span class="text-info">name:</span> build-and-push
+<span class="text-info">spec:</span>
+  <span class="text-info">params:</span>
+    - <span class="text-info">name:</span> image
+  <span class="text-info">steps:</span>
+    - <span class="text-info">name:</span> build
+      <span class="text-info">image:</span> gcr.io/kaniko-project/executor
+      <span class="text-info">args:</span>
+        - <span class="text-warning">--destination=$(params.image)</span>
+        - <span class="text-warning">--context=.</span></code></pre>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Components -->
+<section class="row td-box td-box--light td-box--gradient td-box--height-auto">
+	<div class="container">
+		<div class="row justify-content-center pt-5 pb-3">
+			<div class="col-lg-8 text-center">
+				<h2 class="section-heading mb-4">The Tekton Ecosystem</h2>
+				<p class="lead text-muted mb-5">
+					A modular set of components — use what you need, skip what you don't.
+				</p>
+			</div>
+		</div>
+		<div class="row justify-content-center pb-5">
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="component-card text-center p-4 h-100">
+					<div class="component-icon mb-3"><i class="fas fa-stream fa-2x text-primary"></i></div>
+					<h5><a href="/docs/pipelines/">Pipelines</a></h5>
+					<p class="text-muted small">Define and run CI/CD workflows as Kubernetes resources. The core building block.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="component-card text-center p-4 h-100">
+					<div class="component-icon mb-3"><i class="fas fa-bolt fa-2x text-primary"></i></div>
+					<h5><a href="/docs/triggers/">Triggers</a></h5>
+					<p class="text-muted small">React to events from Git, webhooks, or any source to start pipeline runs automatically.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="component-card text-center p-4 h-100">
+					<div class="component-icon mb-3"><i class="fas fa-link fa-2x text-primary"></i></div>
+					<h5><a href="/docs/chains/">Chains</a></h5>
+					<p class="text-muted small">Automated supply chain security. Sign, attest, and verify your builds for SLSA compliance.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="component-card text-center p-4 h-100">
+					<div class="component-icon mb-3"><i class="fas fa-tachometer-alt fa-2x text-primary"></i></div>
+					<h5><a href="/docs/dashboard/">Dashboard</a></h5>
+					<p class="text-muted small">Web-based UI to monitor and manage pipeline runs, tasks, and resources.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="component-card text-center p-4 h-100">
+					<div class="component-icon mb-3"><i class="fas fa-terminal fa-2x text-primary"></i></div>
+					<h5><a href="/docs/cli/">CLI</a></h5>
+					<p class="text-muted small">Powerful command-line interface to interact with Tekton from your terminal.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="component-card text-center p-4 h-100">
+					<div class="component-icon mb-3"><i class="fas fa-broom fa-2x text-primary"></i></div>
+					<h5><a href="/docs/pruner/">Pruner</a></h5>
+					<p class="text-muted small">Automatically clean up completed PipelineRuns and TaskRuns based on retention policies.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="component-card text-center p-4 h-100">
+					<div class="component-icon mb-3"><i class="fas fa-cogs fa-2x text-primary"></i></div>
+					<h5><a href="https://github.com/tektoncd/operator">Operator</a></h5>
+					<p class="text-muted small">Manage installation, upgrades, and lifecycle of all Tekton components on your cluster.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="component-card text-center p-4 h-100">
+					<div class="component-icon mb-3"><i class="fas fa-database fa-2x text-primary"></i></div>
+					<h5><a href="https://github.com/tektoncd/results">Results</a></h5>
+					<p class="text-muted small">Long-term storage for pipeline execution history, logs, and metadata beyond cluster retention.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="component-card text-center p-4 h-100">
+					<div class="component-icon mb-3"><i class="fas fa-code-branch fa-2x text-primary"></i></div>
+					<h5><a href="https://pipelinesascode.com">Pipelines as Code</a></h5>
+					<p class="text-muted small">Define pipelines in your Git repository. Native integration with GitHub, GitLab, and Bitbucket.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Blog -->
 {{< recent-blog-posts >}}
 
-<!--
-{{< blocks/partners color="danger" >}}
--->
+<!-- CNCF -->
+<section class="row td-box td-box--dark td-box--gradient td-box--height-auto">
+	<div class="container">
+		<div class="row justify-content-center py-5">
+			<div class="col-lg-8 text-center">
+				<a href="https://www.cncf.io/"><img src="/partner-logos/cncf-white.svg" alt="Cloud Native Computing Foundation" class="img-fluid mb-4" style="max-width: 280px;"></a>
+				<h3 class="text-white mb-3">A CNCF Incubating Project</h3>
+				<p class="text-light">
+					Tekton is a <a href="https://www.cncf.io/" class="text-white"><u>Cloud Native Computing Foundation</u></a>
+					incubating project, following
+					<a href="https://www.bestpractices.dev/en/projects/6543" class="text-white"><u>OpenSSF best practices</u></a>.
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
 
-{{< blocks/partners-alternate color="dark" >}}
-
+<!-- Get Involved -->
 {{< blocks/section color="white" >}}
+<div class="col-12 text-center mb-4">
+	<h2 class="section-heading">Get Involved</h2>
+</div>
+
 {{% blocks/feature icon="fas fa-code" title="Install Tekton" %}}
-[Get Tekton here](/docs/installation/)
+Get up and running in minutes on any Kubernetes cluster.
+
+[Install now →](/docs/installation/)
 {{% /blocks/feature %}}
 
+{{% blocks/feature icon="fab fa-github" title="Contribute" %}}
+Join a welcoming community of contributors. Code, docs, or feedback — all welcome.
 
-{{% blocks/feature icon="fab fa-github" title="Contributions welcome" %}}
-[Join the Tekton Community](/community/)
+[Start contributing →](/community/)
 {{% /blocks/feature %}}
 
+{{% blocks/feature icon="fab fa-slack" title="Join the Conversation" %}}
+Connect with the community on Slack, mailing lists, and working group meetings.
 
-{{% blocks/feature icon="fas fa-chalkboard" title="Try Tekton" %}}
-[Get started with Tekton](/docs/getting-started/)
+[Join Slack →](https://join.slack.com/t/tektoncd/shared_invite/zt-1z8ctzsyv-wLXWwA2Rl3AOhcNGqpWRUw)
 {{% /blocks/feature %}}
-
 
 {{< /blocks/section >}}
-
-{{% blocks/manifesto color="dark" %}}

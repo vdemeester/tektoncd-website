@@ -23,10 +23,15 @@
 /* 
     Styling for mobile:
 */
+/* Hero logo — centered cat icon */
+#banner-hero-logo {
+    display: block;
+    max-width: 80px;
+    height: auto;
+    margin: 0 auto 1rem auto;
+}
+
 @media only screen and (max-width: $mobile-width) {
-    #banner-hero-logo {
-        display: none
-    }
 
     #privacy-notice {
         width: 100vw;
@@ -145,29 +150,273 @@ pre {
     border: 1px solid $light;
 }
 
+/* ===== Homepage Redesign ===== */
+
+/* Hero — branded gradient on primary background */
+#td-cover-block-0 {
+    background: linear-gradient(135deg, #080d28 0%, $primary 50%, #1a2980 100%) !important;
+
+    /* Disable the Docsy dark overlay */
+    &.td-overlay--dark::after {
+        background: none !important;
+    }
+
+    /* Override the Docsy cover layout to center content full-width */
+    .row > .col-12 {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+
+    .text-left {
+        text-align: center !important;
+    }
+
+    /* Ensure white text */
+    color: #fff;
+    h1, h2, p, a, span, div {
+        color: #fff;
+    }
+}
+
+.tekton-hero {
+    text-align: center;
+    max-width: 800px;
+
+    .hero-badge {
+        .badge-hero {
+            background: rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.5em 1.2em;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            letter-spacing: 0.02em;
+        }
+    }
+
+    .display-1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+        opacity: 0.85;
+        max-width: 620px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+        font-weight: 300;
+    }
+
+    .btn-primary {
+        background-color: $accent;
+        border-color: $accent;
+        font-weight: 600;
+        padding: 0.6rem 1.8rem;
+        border-radius: 6px;
+
+        &:hover {
+            background-color: darken($accent, 8%);
+            border-color: darken($accent, 8%);
+            box-shadow: 0 4px 15px rgba($accent, 0.4);
+        }
+    }
+
+    .btn-outline-light {
+        font-weight: 600;
+        padding: 0.6rem 1.8rem;
+        border-radius: 6px;
+        border-width: 2px;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #fff;
+        }
+    }
+
+    .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        margin-top: 0.5rem;
+    }
+
+    .hero-stat {
+        text-align: center;
+
+        .hero-stat-number {
+            display: block;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: $accent;
+        }
+
+        .hero-stat-label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            opacity: 0.7;
+            margin-top: 0.15rem;
+        }
+    }
+}
+
+@media only screen and (max-width: $mobile-width) {
+    .tekton-hero .display-1 {
+        font-size: 2.2rem;
+    }
+
+    .tekton-hero .hero-subtitle {
+        font-size: 1.05rem;
+    }
+
+    .tekton-hero .hero-stats {
+        gap: 1.5rem;
+    }
+}
+
+/* Section headings — consistent across the page */
+.section-heading {
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    color: $dark;
+}
+
+h2.section-heading.text-white {
+    color: #fff !important;
+}
+
+/* "What is Tekton" section */
+.td-box--white {
+    background-color: #fff;
+}
+
+/* "Why Tekton" feature section — white bg, clear contrast */
+.td-box--light {
+    background-color: #fafbff !important;
+
+    .col-lg-4 {
+        .h1 {
+            font-size: 2.5rem !important;
+            color: $primary;
+        }
+
+        h4.h3 {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: $dark;
+        }
+
+        p {
+            color: #444;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+    }
+}
+
+/* Component ecosystem cards */
+.component-card {
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    background: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        border-color: rgba($primary, 0.3);
+    }
+
+    h5 {
+        font-weight: 600;
+
+        a {
+            color: $dark;
+            text-decoration: none;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+
+    .component-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 12px;
+        background: $primary-light;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+
+        .fa, .fas {
+            color: $primary;
+        }
+    }
+
+    .small {
+        color: #666;
+        line-height: 1.5;
+    }
+}
+
+/* Code example section */
+.code-example {
+    pre {
+        background: rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin: 0;
+        font-size: 0.88rem;
+        max-height: none;
+        line-height: 1.65;
+
+        code {
+            color: #d4d4d8;
+        }
+    }
+}
+
+/* Dark sections — consistent branded look */
+section.td-box--dark {
+    background: linear-gradient(135deg, #0a0e2a 0%, #0d1547 100%) !important;
+}
+
+/* CNCF section — slightly different tone */
+section.td-box--dark .cncf-logo {
+    opacity: 0.9;
+}
 
 /* Blog cards on homepage */
 .card.shadow-sm {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    border-radius: 8px;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
 
     &:hover {
         transform: translateY(-4px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
+        border-color: rgba($primary, 0.2);
     }
 
     .card-title a {
         text-decoration: none;
+        font-weight: 600;
 
         &:hover {
             color: $primary !important;
         }
-    }
-
-    .badge-light {
-        background-color: #e9ecef;
-        font-weight: normal;
-        font-size: 0.75rem;
     }
 }
 
@@ -183,7 +432,30 @@ pre {
 .badge-outline-primary {
     color: $primary;
     background-color: transparent;
-    border: 1px solid $primary;
+    border: 1px solid rgba($primary, 0.3);
+    font-size: 0.75rem;
+    font-weight: 500;
+
+    &:hover {
+        background-color: $primary-light;
+    }
+}
+
+/* "Get Involved" section — cards with left border accent */
+.td-box--white .td-block {
+    .fa, .fas, .fab {
+        color: $primary;
+    }
+}
+
+/* Footer — match dark theme */
+footer.td-footer {
+    background: $dark !important;
+}
+
+/* Navbar — ensure consistency */
+.td-navbar {
+    background: $dark !important;
 }
 
 /* Styling for the banner */
